@@ -5,7 +5,7 @@
 using namespace std;
 
 FILE *file;
-int chars=0,words=0,symbols=0,s[500];
+int chars=0,words=0,s[500];
 char c;
 
 void analyse()
@@ -31,7 +31,7 @@ void analyse()
         
     }
 
-}//分析所有字符数、单词数
+}
 
 int main ()
 {
