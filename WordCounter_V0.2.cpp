@@ -8,7 +8,7 @@ FILE *file;
 int chars=0,words=0,s[500];
 char c;
 
-void analyse()
+void tongji()
 {
     while((c=fgetc(file))!=EOF) 
     {
@@ -31,7 +31,7 @@ void analyse()
         
     }
 
-}
+}//---------------------------------------------------------wc统计操作----------------------------------------------------------
 
 int main ()
 {
@@ -46,7 +46,7 @@ int main ()
         else 
             cout<<"错误！请重新输入源文件名:";
     }
-    analyse();
+    tongji();
     fclose(file);
     cout<<"字符数："<<chars<<endl;
     cout<<"单词数："<<words<<endl;
