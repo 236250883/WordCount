@@ -1,0 +1,65 @@
+#include "iostream"
+#include "string"
+#include "stdio.h"
+
+using namespace std;
+
+FILE *file;
+int chars=0,words=0,lines=1,symbols=0,s[1000];
+char c;
+
+void tongji()
+{
+    while((c=fgetc(file))!=EOF) 
+    {
+        chars++;
+        if (((c<='z')&&(c>='a'))||((c<='Z')&&(c>='A'))||((c>='0')&&(c<='9')))
+        {
+            words++;
+            while((c=fgetc(file))!=EOF)
+            {    
+                chars++;
+                if (((c<='z')&&(c>='a'))||((c<='Z')&&(c>='A'))||((c>='0')&&(c<='9')))
+                {
+                }
+                else if (c=='\n')
+                {
+                    s[lines]=1;
+                    lines++;
+                    break;
+                }
+                else if (c==' ')
+                    break;
+                else
+                {
+                    symbols++;
+                    break;
+                }
+            }
+        }
+       
+        
+    }
+
+}//---------------------------------------------------------wc统计操作----------------------------------------------------------
+
+int main ()
+{
+    char name[30];
+    int a,i,j;
+    cout<<"请输入源文件名:";
+    for(;;)
+    {
+        cin>>name;
+        if((file=fopen(name,"r"))!=NULL) 
+            break;
+        else 
+            cout<<"错误！请重新输入源文件名:";
+    }
+    tongji();
+    fclose(file);
+    cout<<"字符数："<<chars<<endl;
+    cout<<"单词数："<<words<<endl;
+    cout<<"行数："<<lines<<endl;
+    return 0;
+}
